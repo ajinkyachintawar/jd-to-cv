@@ -53,7 +53,7 @@ interviews and avoids the ones that did not.
 Requires [Claude Code](https://claude.com/claude-code).
 
 ```
-/plugin marketplace add <your-github-user>/jd-to-cv
+/plugin marketplace add ajinkyachintawar/jd-to-cv
 /plugin install jd-to-cv@jd-to-cv
 ```
 
