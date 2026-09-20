@@ -94,6 +94,16 @@ relevant block, run the Step 2 interview for the new facts only, append.
 Mark corrections in-place with `(user-confirmed YYYY-MM-DD)` so a later
 session does not reintroduce the old value.
 
+## Voice capture (do this during the interview)
+
+The pipeline needs to sound like the user, not like a model. While they
+answer, keep two or three sentences they actually said about their work,
+verbatim, and put them in the payload VOICE GUIDE under "Add any personal
+voice notes". Ask once: "Describe your favourite project to me the way you
+would to a friend." That answer is the register every CV must keep. Never
+write payload text in the blacklisted AI-slop vocabulary listed in
+/jd-to-cv; facts recorded in slop get reproduced as slop.
+
 ## Rules
 
 - Facts only. If the user says "about 30%", write "~30%" and ask if they

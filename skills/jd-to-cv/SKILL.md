@@ -215,6 +215,52 @@ content file, then assemble on disk:
 
 ---
 
+## Humanize pass — no AI slop, anywhere (CV, cover letter, form answers, outreach)
+
+Every piece of text the pipeline emits must read like a specific person
+wrote it in one sitting. Run this before Stage 4 and before sending any
+Stage 5/6 text. Rewrite the line; never leave a flagged pattern in place.
+
+**Word blacklist (delete on sight):** leverage(d), utilize(d), spearhead(ed),
+orchestrate(d), elevate(d), synthesize(d), architect(ed) as a verb,
+pioneer(ed), champion(ed), delve, landscape, tapestry, testament, realm,
+paradigm, synergy, holistic, seamless(ly), robust, cutting-edge,
+state-of-the-art, game-changing, transformative, impactful, passionate
+about, results-driven, detail-oriented, dynamic, proven track record,
+"in today's fast-paced", "I am excited to", "I am writing to apply",
+"demonstrating experience with", "resulting in significant".
+
+**Pattern blacklist:**
+- Em-dashes and en-dashes as punctuation. Use a comma, a full stop, or a
+  colon. (Date ranges in `\role{}` keep `--`.)
+- Rule of three: three adjectives, three nouns, three clauses stacked for
+  rhythm ("fast, reliable and scalable"). Cut to the one that is true.
+- Negative parallelism: "not just X, but Y", "it's not about X, it's about Y".
+- Participle tails: a bullet ending in ", ensuring...", ", showcasing...",
+  ", enabling...", ", driving...". End on the fact instead.
+- Inflated significance: "played a pivotal role", "key contributor",
+  "instrumental in". Say what was done.
+- Vague attribution: "stakeholders", "cross-functional teams",
+  "various departments" without naming which.
+- Hedged nothing: "helped to", "assisted with", "was involved in" on a
+  fact the payload says the user owned.
+- Uniform rhythm: every bullet the same length or the same opening shape.
+  Read the section aloud; if it sounds like a list generator, reshape two.
+- Summary or letter opening with the job title, the word "passionate", or
+  a definition of the field.
+- Perfectly balanced paragraphs in a cover letter. Let one be two
+  sentences.
+
+**Positive test:** could a colleague who knows the user say "yes, that is
+how they talk about that project"? If a line could sit on any candidate's
+CV unchanged, it is slop even if no blacklisted word appears. Replace it
+with the concrete thing that happened.
+
+Stage 4's slop scan checks this list mechanically; the Humanize pass is the
+judgment read that precedes it.
+
+---
+
 ## Stage 4 — GATE (runs automatically after Stage 3.5)
 
 Failures → rewrite ONLY the failing lines, never regenerate the CV.
@@ -223,7 +269,7 @@ Failures → rewrite ONLY the failing lines, never regenerate the CV.
 2. **6-second sim:** read ONLY name, headline, summary, first two bullets.
    Does it answer "can this person do THIS job" and give one reason to keep
    reading? Interview or bin.
-3. **Slop scan:** banned verbs, repeated skeletons, em-dashes, bold > 8,
+3. **Slop scan (Humanize pass list):** blacklisted words and patterns, banned verbs, repeated skeletons, em-dashes, bold > 8,
    uniform bullet lengths, "responsible for", metric without mechanism in a
    hook position, any pronoun on the CV (org names containing "My" exempt),
    any entry whose first bullet does not orient the reader.
@@ -257,7 +303,7 @@ outcomes later. Never edit any spreadsheet the user keeps alongside it.
 ## Stage 5 — Cover Letter (on request only)
 
 Requires CV in context. 200-280 words, 4 paragraphs, no bullets, no
-em-dashes, first person is normal here. Voice guide applies.
+em-dashes, first person is normal here. Voice guide and Humanize pass apply.
 
 Content file starts at the date and uses `\recipient{}{}{}` and
 `\subjectline{Re: [Exact Role Title]}`, then:
@@ -274,7 +320,7 @@ Render: `cat "${CLAUDE_PLUGIN_ROOT}/templates/preamble-cl.tex" ../../payload/hea
 
 ## Stage 6 — Application Questions & Outreach (on request)
 
-First person is normal here. Voice guide still applies; facts from payload only.
+First person is normal here. Voice guide and Humanize pass apply; facts from payload only. A recruiter reads fifty of these a day and bins the ones that sound generated.
 
 **Form questions:** answer at the length the field wants, default ONE line.
 Salary → bands in `lanes.md`, anchor mid-band as a range, append "flexible
