@@ -62,8 +62,9 @@ suggest a plausible figure. Never round what they give you.
    → `payload/payload.md`, fill every `<<...>>`, delete unused blocks whole.
 2. Same for `lanes-template.md` → `payload/lanes.md`. Propose 2-4 lanes
    from the user's target roles; ask them to confirm section order and
-   voice per lane. Fill DISQUALIFIERS and Work authorisation carefully:
-   the pipeline skips roles on these alone.
+   voice per lane, and the Page Target (1 or 2 pages; do not assume).
+   Fill DISQUALIFIERS and Work authorisation carefully: the pipeline skips
+   roles on these alone.
 3. `header.tex` / `header-cl.tex`: copy from `${CLAUDE_PLUGIN_ROOT}/templates/`,
    substitute `<<NAME>>`, `<<NAME_UPPER>>`, `<<LOCATION>>`, `<<PHONE>>`,
    `<<EMAIL>>`, `<<LINKEDIN>>`, `<<PORTFOLIO>>`. No portfolio → delete

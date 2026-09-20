@@ -1,80 +1,57 @@
 # jd-to-cv
 
-A Claude Code plugin that turns a job description into a two-page, ATS-tuned
-CV that sounds like you and never invents a fact about you.
+A Claude Code plugin that writes your CV for a specific job from a locked
+file of your own facts. It does not invent numbers, it does not reuse
+bullets, and it does not sound like a machine wrote it.
 
-Two skills, one folder of your facts:
-
-| Skill | When | What it does |
+| Skill | When | Does |
 |---|---|---|
-| `/payload-setup` | Once | Reads your existing CV, interviews you for the story behind every number, writes your fact library (`payload/`) and your name block for the LaTeX design. |
-| `/jd-to-cv` | Every job | Analyzer → Hacker → Writer → Render → Humanize → Gate. Fit score, strategy brief, one "Go?", then a verified PDF in `Applications/`. Also batch triage, cover letters, form answers, recruiter messages, CV-vs-JD audit. |
+| `/payload-setup` | once | Reads your current CV, asks you about the story behind each number, saves your fact file and your name block. |
+| `/jd-to-cv` | per job | Scores the fit, writes a strategy brief, asks "Go?", then writes, renders and checks the PDF. Also cover letters, batch triage, form answers, recruiter messages. |
 
----
+## Why
 
-## Why this exists
+Most CV generators are template fillers. Paste a JD, get your old bullets
+back with the JD's keywords pushed in, plus a layer of "leveraged
+cross-functional stakeholders to drive impact". Recruiters recognise that
+voice in a few seconds. Some tools also round your 38% up to 40% or add a
+tool you never touched, and one checkable error ends the application.
 
-Most CV tools are template fillers. You paste a JD, they paste your bullets
-back with the JD's keywords sprinkled in, and the result reads like the other
-two hundred applications the recruiter saw that morning: "leveraged
-cross-functional stakeholders to drive impactful, data-driven outcomes". A
-screener spots that in six seconds and bins it. Worse, the generator will
-happily round your 38% to "40%+" or add a tool you never used, and one
-checkable lie ends the application.
+Here the rule is simple: facts are locked, prose is free. Your numbers,
+tools, titles and dates live in `payload/payload.md`. The writing stage can
+only read that file and a strategy brief. It never sees the raw JD, so it
+cannot echo it and cannot cite anything you did not put there. Every line is
+written fresh for each job. A blacklist of AI vocabulary and patterns runs on
+everything, and a final gate reads the CV the way a screener does before it
+ships.
 
-This plugin takes the opposite bet:
-
-**Facts locked, prose free.** Your numbers, tools, titles and dates live in
-one file, `payload/payload.md`. The writer stage is only allowed to read the
-strategy brief and that file. It never sees the raw JD, so it cannot parrot
-it, and it cannot cite anything that is not in the payload. Every sentence is
-composed fresh for each application; the facts never move.
-
-**A strategy before a single bullet.** The Hacker stage works out what the
-posting is really hiring for, what mis-hire they are afraid of, what the
-typical applicant will say, and how this CV deliberately will not say that.
-The CV is an argument, not a list.
-
-**Humanized by rule, not by hope.** A word and pattern blacklist (leverage,
-delve, "not just X but Y", the rule of three, participle tails, em-dashes,
-uniform bullet rhythm) is applied to everything the pipeline writes, and a
-final Gate reads the CV the way a screener does: name, headline, summary,
-two bullets, interview or bin. Below 8/10 it rewrites the failing lines,
-never the whole CV, and never inflates the score to pass.
-
-**It learns.** Every generated CV logs one row to `pipeline_log.csv`. You
-mark outcomes. The next brief for a similar role reuses the angles that got
-interviews and avoids the ones that did not.
-
----
+Each CV logs a row to `pipeline_log.csv`. Mark what got interviews and the
+next brief for a similar role uses that.
 
 ## Install
 
-Requires [Claude Code](https://claude.com/claude-code).
+Needs [Claude Code](https://claude.com/claude-code).
 
 ```
 /plugin marketplace add ajinkyachintawar/jd-to-cv
 /plugin install jd-to-cv@jd-to-cv
 ```
 
-Rendering needs a LaTeX compiler and the poppler PDF tools:
+PDF rendering needs tectonic and poppler:
 
 ```bash
 brew install tectonic poppler
 ```
-Debian/Ubuntu: `sudo apt install poppler-utils` and tectonic from
+
+Debian/Ubuntu: `sudo apt install poppler-utils`, tectonic from
 [tectonic-typesetting.github.io](https://tectonic-typesetting.github.io).
 
-The design uses the Charter typeface. If it is not on your system:
-`brew install --cask font-charter`, or edit `\setmainfont{Charter}` in
-`templates/preamble.tex` to a font you have.
+The design uses the Charter font. Missing it? `brew install --cask
+font-charter`, or change `\setmainfont{Charter}` in `templates/preamble.tex`.
 
----
+## Set up your payload
 
-## First run: build your payload
-
-Make a folder for your job hunt. Everything the plugin writes lands here,
-nothing lands in the plugin.
+Work in a folder of your own. The plugin writes there, never into itself.
 
 ```bash
 mkdir ~/job-hunt && cd ~/job-hunt
@@ -84,148 +61,80 @@ claude
 /payload-setup
 ```
 
-Give it your current CV (PDF, DOCX, or plain text; several CVs are fine, it
-unions the facts and flags conflicts). It will:
+Hand it your current CV (PDF, DOCX or text). It pulls out every role,
+project, degree, cert and skill with the numbers and dates as written, then
+asks you what each number measured, what the baseline was, and how it
+happened. If you do not know a figure, it stays blank. It also asks you to
+describe a project in your own words and keeps a few of those sentences as
+the voice for every CV.
 
-1. Extract every role, project, degree, cert and skill, copying numbers,
-   dates and titles verbatim. Existing bullet prose is thrown away; only the
-   fact inside it is kept.
-2. Interview you for the mechanism behind each number: what it measured,
-   the baseline and the result, how it happened, whether you owned it or
-   contributed. If you do not have a number, it records the fact without
-   one. It never suggests a plausible figure.
-3. Capture your voice. It asks you to describe your favourite project the
-   way you would to a friend, and stores a few of your own sentences as the
-   register every CV must keep.
-4. Set your lanes (section order and summary voice per role type), your
-   disqualifiers (countries, companies), work authorisation, salary bands
-   and standard form answers.
-5. Smoke-render a six-line CV to prove the LaTeX chain works on your machine.
-
-Result:
+You set your lanes (section order per role type), page length (1 or 2, your
+call), countries and companies to skip, work authorisation, salary bands and
+standard form answers. It finishes by compiling a tiny test CV so you know
+the LaTeX chain works.
 
 ```
-job-hunt/
-  payload/
-    payload.md      the only place CV facts come from
-    lanes.md        lane presets, salary bands, form answers, disqualifiers
-    header.tex      your name block for the CV
-    header-cl.tex   your name block and footer for cover letters
+job-hunt/payload/
+  payload.md      your facts. The only source the writer may use.
+  lanes.md        lanes, page target, salary bands, form answers, skip list
+  header.tex      your name block for the CV
+  header-cl.tex   same, for cover letters
 ```
 
-Take fifteen minutes on the interview. The quality of every CV afterwards is
-capped by the quality of this file.
+Spend fifteen minutes on the interview. Every CV after this is only as good
+as this file.
 
----
-
-## Every job: paste a JD
+## Use it
 
 ```
 /jd-to-cv
 <paste the job description>
 ```
 
-What you see:
+You get a fit score, a keyword table and a strategy brief. It ends with
+"Go?". Say go. The PDF lands in `Applications/<date>_<Company>/` at the page
+count you set, with every keyword checked against the PDF text and a
+scorecard printed.
 
-**Stage 0, gates.** Wrong country, blocked company, or a "Remote" posting
-whose country is unclear: it stops and tells you why. No CV is written.
-
-**Stage 1, Analyzer.** A fit score out of 100 scored against your facts, not
-your job titles. A keyword table in the JD's exact spelling. Hard
-requirements. Gaps, each with an honest mitigation. Below 60 it stops; "do it
-anyway" overrides.
-
-**Stage 2, Hacker.** A 50-line brief: what they need, what they fear, what
-the typical applicant will say, the one hook, the lane, and a placement map
-giving every must-hit keyword exactly one home on the CV. Ends with **Go?**
-This is the only question you answer.
-
-**Stage 3 to 4, unattended.** Writer composes from the brief and the payload.
-Render assembles the design, your header and the content into
-`Applications/<date>_<Company>/CV_<Company>_<Role>_<Surname>.pdf`, compiles
-it, confirms exactly two pages, and greps the PDF text layer to prove every
-keyword and your contact details survived. Humanize pass runs the blacklist.
-Gate scores ATS coverage, the six-second read, slop, JD echo and length, then
-prints a scorecard and logs the row.
-
-Then, on request:
+Then, if you want them:
 
 | Say | Get |
 |---|---|
-| `cover letter` | 200 to 280 words, matched design, one page, `CL_….pdf` |
-| `triage these` + up to 10 JDs | Analyzer only on each, ranked table, you pick the shortlist |
-| `audit CV vs JD` | Covered / weak / missing table with the highest-impact fixes |
-| a form question | One line, salary from your bands, visa from your standard answer |
-| `message the recruiter` | Connection note, post-application DM, one-week follow-up |
-| `add my new role at X` / `update payload` | Runs the interview for the new facts only, writes them back with a confirmation date |
+| `cover letter` | one page, matched design |
+| `triage these` + up to 10 JDs | ranked table, you pick |
+| `audit CV vs JD` | covered / weak / missing, with fixes |
+| a form question | one line, from your bands and standard answers |
+| `message the recruiter` | connection note, DM, one-week follow-up |
+| `add my new role at X` | interview for the new facts, written back dated |
 
----
+## **Ten JDs per session, then open a new one**
 
-## **Ten JDs per session, then start a new one**
+**After about ten job descriptions in one Claude Code session, start a
+fresh session.** Past that point the model starts borrowing phrasing from
+the earlier CVs in the same conversation and the bullets drift toward each
+other. A new session reloads the payload cold. You lose nothing:
+`pipeline_log.csv` and `Applications/` persist on disk.
 
-**Run at most ten job descriptions in a single Claude Code session. After
-that, open a fresh session before continuing.**
+Triage first, run the full pipeline on the roles you actually want.
 
-Each application adds a brief, a CV and a scorecard to the conversation.
-Past ten, the model starts reusing phrasings and angles from earlier CVs in
-the same window, bullets drift toward each other, and the Humanize pass has
-more to catch. A new session reloads the payload cold and the output is
-sharp again. Nothing is lost: `pipeline_log.csv` carries the learning loop
-across sessions, and `Applications/` keeps every PDF.
-
-Use batch triage first (`triage these`), take the top few forward, and
-save the full pipeline for roles you actually want.
-
----
-
-## What is in the repo
+## Repo layout
 
 ```
-.claude-plugin/plugin.json        plugin manifest
-.claude-plugin/marketplace.json   lets this repo act as its own marketplace
-skills/payload-setup/SKILL.md     the setup interview
-skills/payload-setup/references/  payload and lanes templates (every <<field>> explained)
-skills/jd-to-cv/SKILL.md          the pipeline, stage by stage
-templates/preamble.tex            CV design: fonts, spacing, \role \proj \stack \section
-templates/preamble-cl.tex         cover letter design, matched
-templates/header.tex              name-block templates that /payload-setup fills in
-templates/header-cl.tex
-templates/cv-template.tex         the content skeleton the writer follows
+.claude-plugin/          plugin and marketplace manifests
+skills/payload-setup/    the setup interview + payload and lanes templates
+skills/jd-to-cv/         the pipeline
+templates/               LaTeX design, header templates, content skeleton
 ```
 
-Your data (`payload/`, `Applications/`, `pipeline_log.csv`) stays in your
-working directory and is `.gitignore`d here. Never commit your payload to a
-public repo.
+`payload/`, `Applications/` and `pipeline_log.csv` are yours and are
+gitignored. Do not commit your payload to a public repo.
 
----
+## Change the design
 
-## Customising the design
-
-Edit `templates/preamble.tex`. Keep the command names `\role{}{}{}`,
-`\proj{}{}{}`, `\stack{}` and `\section{}`; the writer depends on them.
-Section headers are bold capitals on purpose: small caps break the PDF text
-layer that ATS parsers read, so "Experience" would parse as "E XPERIENCE".
-Ligatures are disabled for the same reason.
-
-To change the header layout, edit `templates/header.tex` and re-run
-`/payload-setup` (or edit your own `payload/header.tex` directly).
-
----
-
-## Rules the pipeline will not break
-
-1. Metrics are sacred: never rounded, approximated or changed.
-2. Tools are facts: only what the payload lists for that role.
-3. Not in the payload, not on the CV.
-4. Gaps are mitigated in framing, never papered over.
-5. Prose is composed fresh every time; no bullet is ever reused.
-6. No pronouns, no em-dashes, no blacklisted words on the CV.
-7. Work authorisation stays off the CV unless you ask.
-8. A fact you correct mid-session is written back to the payload before the
-   pipeline continues, dated, so it never regresses.
-
----
+Edit `templates/preamble.tex`. Keep `\role`, `\proj`, `\stack` and
+`\section`; the writer uses them. Section headers are bold capitals because
+small caps break the text layer ATS parsers read.
 
 ## Licence
 
-MIT. Fork it, change the design, keep the regime.
+MIT.

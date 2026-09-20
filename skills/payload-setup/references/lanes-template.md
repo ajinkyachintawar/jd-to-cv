@@ -26,6 +26,11 @@ foreground. The Stage 2 brief picks a lane or synthesises one.
 
 ### <<Next lane>> ...
 
+## Page Target
+
+- CV length: <<1 or 2 pages>> (2 is the usual choice past three years of experience; 1 for graduates or where the market expects it)
+- Cover letter: 1 page
+
 ## Cross-Lane Rules (apply regardless of lane)
 
 - Bullets fit ONE rendered line: hard limit ~112 characters per `\item`

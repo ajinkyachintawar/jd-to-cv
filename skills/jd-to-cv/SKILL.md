@@ -1,6 +1,6 @@
 ---
 name: jd-to-cv
-description: Adversarial job application pipeline. Analyzer (ATS sim + fit score) → Hacker (strategy brief) → Writer (fresh prose from locked facts) → Render (2-page LaTeX PDF) → Gate (6-second sim + slop scan). Handles single JDs, batch triage of up to 10 JDs, cover letters, CV-vs-JD audits, application-form answers and recruiter outreach. Use when the user pastes a job description or job URL, says "analyze this", "should I apply", "write CV", "triage these", "cover letter", or any job application task. Requires payload/ built by /payload-setup.
+description: Adversarial job application pipeline. Analyzer (ATS sim + fit score) → Hacker (strategy brief) → Writer (fresh prose from locked facts) → Render (LaTeX PDF at the page target from lanes.md) → Gate (6-second sim + slop scan). Handles single JDs, batch triage of up to 10 JDs, cover letters, CV-vs-JD audits, application-form answers and recruiter outreach. Use when the user pastes a job description or job URL, says "analyze this", "should I apply", "write CV", "triage these", "cover letter", or any job application task. Requires payload/ built by /payload-setup.
 ---
 
 # JD-to-CV Pipeline
@@ -164,6 +164,8 @@ else. This is what prevents keyword parroting.
   2-3 sentences, **80 words max**, contains the HOOK, never a role-by-role
   narrative and never "[Title] with X years of experience".
 - No floating prose outside sections; everything is a bullet or a header.
+- Total length follows the page target in `lanes.md`; the bullet floors
+  still hold, so a 1-page target means fewer roles or projects, not thinner ones.
 - **Bold rationed: 5-8 load-bearing terms across the whole CV**, first use
   only. Skills category names are exempt.
 - Placement-map keywords appear at their assigned home, exact spelling, once.
@@ -186,7 +188,7 @@ else. This is what prevents keyword parroting.
 
 ---
 
-## Stage 3.5 — RENDER (LaTeX → verified 2-page PDF)
+## Stage 3.5 — RENDER (LaTeX → verified PDF at the page target)
 
 Design lives in `${CLAUDE_PLUGIN_ROOT}/templates/preamble.tex` (bold caps
 section headers, never small caps: pdftotext breaks them). Skeleton:
@@ -205,9 +207,9 @@ content file, then assemble on disk:
    cat "${CLAUDE_PLUGIN_ROOT}/templates/preamble.tex" ../../payload/header.tex content.tex > CV_[Company]_[Role]_[Surname].tex && tectonic CV_*.tex
    ```
    Fix errors in content.tex, reassemble.
-4. `pdfinfo CV_*.pdf | grep Pages` → must be exactly 2. Over → trim bullets
-   by angle-relevance, never below the floors; under-filled page 2 is fine,
-   a 3rd page is not.
+4. `pdfinfo CV_*.pdf | grep Pages` → must equal the page target in
+   `lanes.md`. Over → trim bullets by angle-relevance, never below the
+   floors; a slightly under-filled last page is fine, an extra page is not.
 5. `pdftotext CV_*.pdf - | grep -c -i '<term>'` for name, phone, email and
    every MUST-HIT. Grep, don't dump the text into context.
 6. Visual check (`pdftoppm -png -r 80`, view, delete) **only when warranted**:
@@ -275,7 +277,7 @@ Failures → rewrite ONLY the failing lines, never regenerate the CV.
    any entry whose first bullet does not orient the reader.
 4. **JD-echo check:** any JD phrase not in the placement map → remove.
 5. **Length check:** bullet word counts, summary ≤ 80, bullet floors met,
-   total bullets ≤ ~35.
+   page count equals the target in `lanes.md`.
 
 ```
 GATE SCORECARD
