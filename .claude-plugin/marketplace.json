@@ -1,0 +1,12 @@
+{
+  "name": "jd-to-cv",
+  "owner": { "name": "Ajinkya Chintawar", "email": "ajinkyachintawar12@gmail.com" },
+  "metadata": { "description": "JD-to-CV: payload-first, fact-locked CV generation for Claude Code" },
+  "plugins": [
+    {
+      "name": "jd-to-cv",
+      "source": "./",
+      "description": "Two skills: /payload-setup (one-time fact library from your CV) and /jd-to-cv (per-JD analyze, strategise, write, render, gate)."
+    }
+  ]
+}

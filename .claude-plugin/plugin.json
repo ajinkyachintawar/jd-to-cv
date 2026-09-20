@@ -1,0 +1,7 @@
+{
+  "name": "jd-to-cv",
+  "version": "1.0.0",
+  "description": "Adversarial job-application pipeline: build a locked fact payload from your CV, then generate ATS-tuned, human-voiced 2-page LaTeX CVs and cover letters per job description.",
+  "author": { "name": "Ajinkya Chintawar", "email": "ajinkyachintawar12@gmail.com" },
+  "keywords": ["cv", "resume", "job-application", "ats", "latex", "cover-letter"]
+}

@@ -1,0 +1,7 @@
+payload/
+Applications/
+pipeline_log.csv
+*.pdf
+*.aux
+*.log
+.DS_Store
