@@ -9,6 +9,13 @@ bullets, and it does not sound like a machine wrote it.
 | `/payload-setup` | once | Reads your current CV, asks you about the story behind each number, saves your fact file and your name block. |
 | `/jd-to-cv` | per job | Scores the fit, writes a strategy brief, asks "Go?", then writes, renders and checks the PDF. Also cover letters, batch triage, form answers, recruiter messages. |
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/workflow-dark.svg">
+    <img alt="jd-to-cv workflow: install once, build the payload once, then per job run gates, analyzer, hacker, go, writer, render, humanize, gate" src="docs/workflow.svg" width="880">
+  </picture>
+</p>
+
 ## Why
 
 Most CV generators are template fillers. Paste a JD, get your old bullets

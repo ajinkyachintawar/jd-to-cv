@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="1564" viewBox="0 0 880 1564">
+<rect width="880" height="1564" fill="#FAFAF7"/>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#B4B2A9"/></marker></defs>
+<text x="40" y="30" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">How jd-to-cv is used</text>
+<text x="40" y="60" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Install once, build the payload once per person, then paste job descriptions.</text>
+<rect x="40" y="90" width="800" height="210" rx="14" fill="#FFFFFF" stroke="#D3D1C7" stroke-width="1"/>
+<rect x="40" y="90" width="6" height="210" rx="3" fill="#888780"/>
+<text x="66" y="116" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Install</text>
+<rect x="146.5" y="105" width="130" height="22" rx="11" fill="#F1EFE8" stroke="#F1EFE8" stroke-width="1"/>
+<text x="211" y="116" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="500" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">once per machine</text>
+<circle cx="78" cy="156" r="12" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+<text x="78" y="156" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="102" y="150" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">/plugin marketplace add ajinkyachintawar/jd-to-cv</text>
+<text x="102" y="168" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Registers this repo as a marketplace</text>
+<circle cx="78" cy="202" r="12" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+<text x="78" y="202" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">2</text>
+<text x="102" y="196" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">/plugin install jd-to-cv@jd-to-cv</text>
+<text x="102" y="214" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Pulls both skills and the LaTeX templates</text>
+<circle cx="78" cy="248" r="12" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+<text x="78" y="248" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2C2C2A" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="102" y="242" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">brew install tectonic poppler</text>
+<text x="102" y="260" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">PDF compiler, plus the tools that read the PDF back</text>
+<line x1="78" y1="300" x2="78" y2="328" stroke="#B4B2A9" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="40" y="330" width="800" height="380" rx="14" fill="#FFFFFF" stroke="#D3D1C7" stroke-width="1"/>
+<rect x="40" y="330" width="6" height="380" rx="3" fill="#7F77DD"/>
+<text x="66" y="356" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Build the payload</text>
+<rect x="241.5" y="345" width="235" height="22" rx="11" fill="#EEEDFE" stroke="#EEEDFE" stroke-width="1"/>
+<text x="359" y="356" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="500" fill="#26215C" text-anchor="middle" dominant-baseline="central">/payload-setup · once per person</text>
+<circle cx="78" cy="396" r="12" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="78" y="396" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="102" y="390" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Hand over your current CV (PDF, DOCX or text)</text>
+<text x="102" y="408" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Facts copied as written; old bullet prose is dropped</text>
+<circle cx="78" cy="442" r="12" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="78" y="442" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C" text-anchor="middle" dominant-baseline="central">2</text>
+<text x="102" y="436" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Mechanism interview</text>
+<text x="102" y="454" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">What each number measured, baseline to result, how, whose work</text>
+<circle cx="78" cy="488" r="12" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="78" y="488" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="102" y="482" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Voice capture</text>
+<text x="102" y="500" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Describe a project the way you would to a friend; that register is kept</text>
+<circle cx="78" cy="534" r="12" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="78" y="534" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C" text-anchor="middle" dominant-baseline="central">4</text>
+<text x="102" y="528" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Lanes, page length, skip list, work authorisation, salary bands</text>
+<text x="102" y="546" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">The settings the pipeline reads before it writes anything</text>
+<circle cx="78" cy="580" r="12" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="78" y="580" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#26215C" text-anchor="middle" dominant-baseline="central">5</text>
+<text x="102" y="574" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Smoke render</text>
+<text x="102" y="592" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">A six-line CV compiles and your name reads back from the PDF</text>
+<rect x="66.0" y="618" width="179.5" height="60" rx="8" fill="#FAFAF7" stroke="#D3D1C7" stroke-width="1"/>
+<text x="78.0" y="638" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">payload/payload.md</text>
+<text x="78.0" y="659" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">only source of facts</text>
+<rect x="255.5" y="618" width="179.5" height="60" rx="8" fill="#FAFAF7" stroke="#D3D1C7" stroke-width="1"/>
+<text x="267.5" y="638" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">payload/lanes.md</text>
+<text x="267.5" y="659" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">lanes, page target, answers</text>
+<rect x="445.0" y="618" width="179.5" height="60" rx="8" fill="#FAFAF7" stroke="#D3D1C7" stroke-width="1"/>
+<text x="457.0" y="638" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">payload/header.tex</text>
+<text x="457.0" y="659" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">CV name block</text>
+<rect x="634.5" y="618" width="179.5" height="60" rx="8" fill="#FAFAF7" stroke="#D3D1C7" stroke-width="1"/>
+<text x="646.5" y="638" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">payload/header-cl.tex</text>
+<text x="646.5" y="659" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">letter name block</text>
+<line x1="78" y1="710" x2="78" y2="738" stroke="#B4B2A9" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="40" y="740" width="800" height="496" rx="14" fill="#FFFFFF" stroke="#D3D1C7" stroke-width="1"/>
+<rect x="40" y="740" width="6" height="496" rx="3" fill="#1D9E75"/>
+<text x="66" y="766" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Per job</text>
+<rect x="146.5" y="755" width="169" height="22" rx="11" fill="#E1F5EE" stroke="#E1F5EE" stroke-width="1"/>
+<text x="231" y="766" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="500" fill="#04342C" text-anchor="middle" dominant-baseline="central">/jd-to-cv · paste a JD</text>
+<circle cx="78" cy="806" r="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+<text x="78" y="806" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#04342C" text-anchor="middle" dominant-baseline="central">0</text>
+<text x="102" y="800" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Gates</text>
+<text x="102" y="818" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Wrong country, skipped company, unclear “Remote”: stops, nothing written</text>
+<circle cx="78" cy="852" r="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+<text x="78" y="852" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#04342C" text-anchor="middle" dominant-baseline="central">1</text>
+<text x="102" y="846" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Analyzer</text>
+<text x="102" y="864" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Fit 0–100 against your facts, must-hit keywords, gaps with honest mitigations</text>
+<circle cx="78" cy="898" r="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+<text x="78" y="898" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#04342C" text-anchor="middle" dominant-baseline="central">2</text>
+<text x="102" y="892" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Hacker</text>
+<text x="102" y="910" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">What they need, what they fear, what 200 other CVs say, one hook, keyword map</text>
+<path d="M78 926 l7 -9 h-14 z" fill="#1D9E75"/>
+<text x="96" y="934" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="500" fill="#0F6E56" text-anchor="start" dominant-baseline="central">You answer “Go?”, the only decision in the pipeline</text>
+<circle cx="78" cy="968" r="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+<text x="78" y="968" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#04342C" text-anchor="middle" dominant-baseline="central">3</text>
+<text x="102" y="962" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Writer</text>
+<text x="102" y="980" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Writes from the brief and the payload only; never re-reads the JD</text>
+<circle cx="78" cy="1014" r="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+<text x="78" y="1014" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#04342C" text-anchor="middle" dominant-baseline="central">3.5</text>
+<text x="102" y="1008" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Render</text>
+<text x="102" y="1026" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Assemble, compile, check page count, grep every keyword in the PDF text</text>
+<circle cx="78" cy="1060" r="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+<text x="78" y="1060" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#04342C" text-anchor="middle" dominant-baseline="central">H</text>
+<text x="102" y="1054" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Humanize pass</text>
+<text x="102" y="1072" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Word and pattern blacklist: no leverage, rule of three, participle tails, em-dashes</text>
+<circle cx="78" cy="1106" r="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1"/>
+<text x="78" y="1106" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#04342C" text-anchor="middle" dominant-baseline="central">4</text>
+<text x="102" y="1100" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Gate</text>
+<text x="102" y="1118" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">ATS coverage, 6-second read, slop, JD echo, length. Ship at 90% and 8/10</text>
+<rect x="66.0" y="1144" width="369.0" height="60" rx="8" fill="#FAFAF7" stroke="#D3D1C7" stroke-width="1"/>
+<text x="78.0" y="1164" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Applications/&lt;date&gt;_&lt;Company&gt;/CV_….pdf</text>
+<text x="78.0" y="1185" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">at your page target, verified</text>
+<rect x="445.0" y="1144" width="369.0" height="60" rx="8" fill="#FAFAF7" stroke="#D3D1C7" stroke-width="1"/>
+<text x="457.0" y="1164" font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">pipeline_log.csv</text>
+<text x="457.0" y="1185" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">one row per CV; feeds the next brief</text>
+<line x1="78" y1="1236" x2="78" y2="1264" stroke="#B4B2A9" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="40" y="1266" width="800" height="256" rx="14" fill="#FFFFFF" stroke="#D3D1C7" stroke-width="1"/>
+<rect x="40" y="1266" width="6" height="256" rx="3" fill="#D85A30"/>
+<text x="66" y="1292" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">On request</text>
+<rect x="175.0" y="1281" width="182" height="22" rx="11" fill="#FAECE7" stroke="#FAECE7" stroke-width="1"/>
+<text x="266" y="1292" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="500" fill="#4A1B0C" text-anchor="middle" dominant-baseline="central">same session, same facts</text>
+<circle cx="78" cy="1332" r="12" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+<text x="78" y="1332" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#4A1B0C" text-anchor="middle" dominant-baseline="central">CL</text>
+<text x="102" y="1326" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Cover letter</text>
+<text x="102" y="1344" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">200–280 words, one page, matched design</text>
+<circle cx="78" cy="1378" r="12" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+<text x="78" y="1378" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#4A1B0C" text-anchor="middle" dominant-baseline="central">Q</text>
+<text x="102" y="1372" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Form answers and recruiter messages</text>
+<text x="102" y="1390" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Salary from your bands, visa from your standard answer, DMs under 80 words</text>
+<circle cx="78" cy="1424" r="12" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+<text x="78" y="1424" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#4A1B0C" text-anchor="middle" dominant-baseline="central">T</text>
+<text x="102" y="1418" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Batch triage</text>
+<text x="102" y="1436" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Up to 10 JDs, Analyzer only, ranked table, you pick</text>
+<circle cx="78" cy="1470" r="12" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+<text x="78" y="1470" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#4A1B0C" text-anchor="middle" dominant-baseline="central">U</text>
+<text x="102" y="1464" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" text-anchor="start" dominant-baseline="central">Payload update</text>
+<text x="102" y="1482" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">New role, new cert, corrected number: written back with a date</text>
+<text x="66" y="1540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="500" fill="#5F5E5A" text-anchor="start" dominant-baseline="central">Ten JDs per session. Then open a new one; the log and the PDFs stay on disk.</text>
+</svg>
